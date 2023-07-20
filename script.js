@@ -94,13 +94,27 @@ game()
 
 
 
-//use singleRound inside here to play 5 round game (keeping score)
-//loop through 5 times & console.log() to display results of each round 
-//use prompt() to get input from useer
+let scissors = document.querySelector('#scissors')
+
+scissors.addEventListener('click', function () {
+    game("scissors"); 
+});
 
 
 
+let rock = document.querySelector('#rock')
 
+rock.addEventListener('click', function () {
+    game("rock"); 
+});
+
+
+
+let paper = document.querySelector('#paper')
+
+paper.addEventListener('click', function () {
+    game("paper"); 
+});
 
 
 
