@@ -1,7 +1,7 @@
 
 
-
-    // these are the functional blocks to get the game to do something based on the interactive mechanism
+// MECHANISM TO GENERATE COMPUTERS INPUTS FOR GAME & GAME LOGIC FOR WINNER/LOSER
+    
     function getComputerChoice() {
     let stringArray = ["rock", "paper", "scissors"]
     let randomString = Math.floor(Math.random() * stringArray.length) 
@@ -10,83 +10,140 @@
 }
     getComputerChoice()
     
-    function playRound (playerSelection, computerSelection){
-
-    if (playerSelection == "rock" && computerSelection == "paper") {
-        return "You Lose!, Paper beats Rock"
-    } else if (playerSelection == "rock" && computerSelection == "scissors") {
-        return "You Win!, Rock beats Scissors"
-    } else if (playerSelection == "rock" && computerSelection == "rock") {
-        return "A draw!, Try Again"
-
-    } else if (playerSelection == "paper" && computerSelection == "rock") {
-        return "You Win!, Paper beats Rock"
-    } else if (playerSelection == "paper" && computerSelection == "scissors"){
-        return "You Lose!, Scissors beats Paper"
-    } else if (playerSelection == "paper" && computerSelection == "paper") {
-        return "A draw!, Try Again"
-
-    } else if (playerSelection == "scissors" && computerSelection == "paper") {
-        return "You Win!, Scissors beats Paper"
-    } else if (playerSelection == "scissors" && computerSelection == "rock") {
-        return "You Lose!, Rock beats Scissors"
-    } else if (playerSelection == "scissors" && computerSelection == "scissors") {
-
-        return "A draw!, Try Again"
-    } else return "Whoopsy, something went wrong, try again!" }
-     
+    function playRound (playerSelection, computerSelection) {
+        if (playerSelection == "rock" && computerSelection == "paper") {
+            return "You Lose!, Paper beats Rock"
+        } else if (playerSelection == "rock" && computerSelection == "scissors") {
+            return "You Win!, Rock beats Scissors"
+        } else if (playerSelection == "rock" && computerSelection == "rock") {
+            return "A draw! Try Again"
+        } else if (playerSelection == "paper" && computerSelection == "rock") {
+            return "You Win!, Paper beats Rock"
+        } else if (playerSelection == "paper" && computerSelection == "scissors"){
+            return "You Lose!, Scissors beats Paper"
+        } else if (playerSelection == "paper" && computerSelection == "paper") {
+            return "A draw! Try Again"
+        } else if (playerSelection == "scissors" && computerSelection == "paper") {
+            return "You Win!, Scissors beats Paper"
+        } else if (playerSelection == "scissors" && computerSelection == "rock") {
+            return "You Lose!, Rock beats Scissors"
+        } else if (playerSelection == "scissors" && computerSelection == "scissors") {
+            return "A draw! Try Again"
+        } else return "Whoopsy, something went wrong, try again!" 
+}
 
 
+
+
+
+// ALL DOM METHODS
+
+let scissors = document.querySelector('#scissors') 
+let rock = document.querySelector('#rock')
+let paper = document.querySelector('#paper')
+let roundResultContent = document.querySelector('#round-result-content')
+let finalWinnerContent = document.querySelector('#final-winner-content')
+let runningScoreContent = document.querySelector('#running-score')
+let newGame = document.querySelector('#new-game-button') 
 
 let playerScore = 0
 let computerScore = 0
-let winnerOfRound = ""
-let finalWinner = "";
+let roundsCompleted = 0
 
-async function game() {
-// this is the interactive mechanism 
+scissors.addEventListener('click', function () { 
+    game("scissors"); 
+});
     
-for (let i = 0; i < 5; i++) {
+rock.addEventListener('click', function () {
+    game("rock"); 
+});  
+
+paper.addEventListener('click', function () {
+    game("paper"); 
+});
+
+
+
+// FUNCTIONALITY FOR BUTTON RESETTING OF GAME COMPLETE
+newGame.addEventListener('click', function () { 
+    startNewGame()
+})
+
+
+// FINAL WINNER FUNCTION
+function displayFinalWinner() {
+    if (playerScore > computerScore) {
+        finalWinnerContent.textContent = 
+        "You Win! Final Score: " + playerScore + " - " + computerScore;
+    } else if (playerScore < computerScore) {
+        finalWinnerContent.textContent = 
+        "You Lose! Final Score: " + playerScore + " - " + computerScore
+    } else if (playerScore === computerScore && playerScore > 0 && computerScore > 0) {
+        finalWinnerContent.textContent = "It's draw! try again!"
+    } else {finalWinnerContent.textContent = ""}
+}
+
+
+
+// GAME FUNCTION 
+function game(choice) {
     
-    const playerInput = await window.prompt("Choose Rock, Paper or Scissors")
-    const playerChoice = playerInput.toLowerCase()
+if (roundsCompleted < 5) {
+    const playerChoice = choice  
     const computerChoice = getComputerChoice()
     const roundResult = playRound(playerChoice,computerChoice)
 
         if (roundResult == "You Win!, Rock beats Scissors" || 
             roundResult == "You Win!, Paper beats Rock" || 
             roundResult == "You Win!, Scissors beats Paper") {
-            winnerOfRound = "Player Wins!"
-            playerScore += 1;
+            playerScore += 1; 
+            roundResultContent.textContent = "Player Wins!"; 
+            runningScoreContent.textContent = playerScore + " - " + computerScore 
 
         } else if (roundResult == "You Lose!, Paper beats Rock" || 
                roundResult == "You Lose!, Scissors beats Paper" || 
                roundResult == "You Lose!, Rock beats Scissors") {
-                winnerOfRound = "Computer Wins!"
                 computerScore += 1;
+                roundResultContent.textContent = "Computer Wins!"; 
+                runningScoreContent.textContent = playerScore + " - " + computerScore   
 
-        } else winnerOfRound = "Must be a draw!, try again"
+        } else if (roundResult == "A draw! Try Again") { 
+                roundResultContent.textContent = "A draw! Try Again"; 
+                runningScoreContent.textContent = playerScore + " - " + computerScore
+           
+        } else { 
+            roundResultContent.textContent = ""
+
+        }
+        roundsCompleted++
+
+        if (roundsCompleted === 5) {
+            displayFinalWinner()
+        
+        }
+    }   
+};
+
+function startNewGame() {
+    resetGame()
+   
     
-        console.log(winnerOfRound)
-        console.log(playerScore)
-        console.log(computerScore)
-
-    }
-
-
-    if (playerScore > computerScore) {
-        finalWinner = "You Win! " + playerScore + computerScore;
-    } else if (playerScore < computerScore) {
-        finalWinner = "You Lose! " + playerScore + computerScore
-    } else finalWinner = "It's draw! try again!"
-
-    console.log(finalWinner)
-
-
+}
+function resetGame () {
+    playerScore = 0
+    computerScore = 0
+    roundsCompleted = 0
+    roundResultContent.textContent = ""
+    finalWinnerContent.textContent = ""
+    runningScoreContent.textContent = "0 - 0"
+    
 }
 
 
-game()
+
+
+    
+    
 
 
 
@@ -94,27 +151,11 @@ game()
 
 
 
-let scissors = document.querySelector('#scissors')
-
-scissors.addEventListener('click', function () {
-    game("scissors"); 
-});
 
 
 
-let rock = document.querySelector('#rock')
-
-rock.addEventListener('click', function () {
-    game("rock"); 
-});
 
 
-
-let paper = document.querySelector('#paper')
-
-paper.addEventListener('click', function () {
-    game("paper"); 
-});
 
 
 
