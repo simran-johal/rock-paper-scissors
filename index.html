@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>HTML 5 Boilerplate</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./styles.css">
   </head>
 
 
@@ -18,29 +18,40 @@
   <body>
     <h1>Man vs Machine</h1>
 
-    <div>
-      <p>Do you have what it takes to beat the machine</p>
+    <div >
+      <h2>Do you have what it takes to beat the machine...</p>
+    </div>
+
+    <div id="weapons-title">
       <p>Choose you're weapon for battle</p>
     </div>
 
-    <div>
+    <!--<div class="buttons-container">
       <button class="buttons" id="rock">Rock</button>
-    </div>
-
-    <div>
       <button class="buttons" id="paper">Paper</button>
-    </div>
-
-    <div>
       <button class="buttons" id="scissors">Scissors</button>
+    </div> -->
+
+    <div class="buttons-container">
+      <img src="images/rock-image.png" class="buttons icon1" id="rock">
+      <img src="images/paper-image.png"class="buttons icon2" id="paper">
+      <img src="images/scissors-image.png"class="buttons icon3" id="scissors">
     </div>
 
-    <div>
-      <p>Who Wins the Battle:</p>
-      <p id="round-result-content"></p>
-      <p>Score</p>
-      <p id="running-score"></p>
-      <p id="final-winner-content"></p>
+    <div class="score-section">
+
+      <div class="round-winner-content">
+        <p class="running-score-section">You vs Machine<p>
+        <p id="running-score" class="running-score-section"></p>
+      </div>
+
+      <div class="round-winner-content">
+        <p id="round-result-content"></p>
+      </div>
+
+      <div>
+        <p id="final-winner-content"></p>
+      </div>
     </div>
 
     <div> 

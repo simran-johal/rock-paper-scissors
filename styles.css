@@ -1,0 +1,96 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+html {
+    box-sizing: border-box;
+    font-size: 200%;
+}
+
+body {
+    background-color: black;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-items: center;
+    margin: 100px
+}
+
+h1 {
+    color: white
+}
+
+p {
+    color: white;
+    font-size: 75%;
+    margin: 0;
+    
+}
+
+h2 {
+    color: white;
+    font-size: 75%;
+
+}
+
+
+#weapons-title {
+    margin: 60px;
+}
+
+
+.buttons-container {
+    display: flex;
+    margin: 50px;
+    margin-top: 0;
+    
+}
+
+.buttons {
+    margin: 30px;
+}
+
+.score-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.round-winner-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.running-score-section {
+    margin: 5px;
+}
+
+.icon1, .icon2, .icon3 {
+    height: 20%;
+    width: 20%;
+    vertical-align: middle;
+    transition: transform 0.5s;t
+    transform-origin: center;
+
+}
+
+.icon1:hover, .icon2:hover, .icon3:hover {
+    transform: scale(1.2) translateZ(0);
+    box-shadow: 0 0 10px 2px rgba(255, 0, 0, 1)
+}
+
+#final-winner-content {
+    box-sizing: border-box;
+    margin: 0
+}
+
+
+
+
+
+
+
+

@@ -2,34 +2,33 @@
 
 // MECHANISM TO GENERATE COMPUTERS INPUTS FOR GAME & GAME LOGIC FOR WINNER/LOSER
     
-    function getComputerChoice() {
-    let stringArray = ["rock", "paper", "scissors"]
-    let randomString = Math.floor(Math.random() * stringArray.length) 
-    return stringArray[randomString]
-    
+function getComputerChoice() {
+let stringArray = ["rock", "paper", "scissors"]
+let randomString = Math.floor(Math.random() * stringArray.length) 
+return stringArray[randomString]
 }
-    getComputerChoice()
+getComputerChoice()
     
-    function playRound (playerSelection, computerSelection) {
-        if (playerSelection == "rock" && computerSelection == "paper") {
-            return "You Lose!, Paper beats Rock"
-        } else if (playerSelection == "rock" && computerSelection == "scissors") {
-            return "You Win!, Rock beats Scissors"
-        } else if (playerSelection == "rock" && computerSelection == "rock") {
-            return "A draw! Try Again"
-        } else if (playerSelection == "paper" && computerSelection == "rock") {
-            return "You Win!, Paper beats Rock"
-        } else if (playerSelection == "paper" && computerSelection == "scissors"){
-            return "You Lose!, Scissors beats Paper"
-        } else if (playerSelection == "paper" && computerSelection == "paper") {
-            return "A draw! Try Again"
-        } else if (playerSelection == "scissors" && computerSelection == "paper") {
-            return "You Win!, Scissors beats Paper"
-        } else if (playerSelection == "scissors" && computerSelection == "rock") {
-            return "You Lose!, Rock beats Scissors"
-        } else if (playerSelection == "scissors" && computerSelection == "scissors") {
-            return "A draw! Try Again"
-        } else return "Whoopsy, something went wrong, try again!" 
+function playRound (playerSelection, computerSelection) {
+    if (playerSelection == "rock" && computerSelection == "paper") {
+        return "You Lose!, Paper beats Rock"
+    } else if (playerSelection == "rock" && computerSelection == "scissors") {
+        return "You Win!, Rock beats Scissors"
+    } else if (playerSelection == "rock" && computerSelection == "rock") {
+        return "A draw! Try Again"
+    } else if (playerSelection == "paper" && computerSelection == "rock") {
+        return "You Win!, Paper beats Rock"
+    } else if (playerSelection == "paper" && computerSelection == "scissors"){
+        return "You Lose!, Scissors beats Paper"
+    } else if (playerSelection == "paper" && computerSelection == "paper") {
+        return "A draw! Try Again"
+    } else if (playerSelection == "scissors" && computerSelection == "paper") {
+        return "You Win!, Scissors beats Paper"
+    } else if (playerSelection == "scissors" && computerSelection == "rock") {
+        return "You Lose!, Rock beats Scissors"
+    } else if (playerSelection == "scissors" && computerSelection == "scissors") {
+        return "A draw! Try Again"
+    } else return "Whoopsy, something went wrong, try again!" 
 }
 
 
@@ -37,7 +36,6 @@
 
 
 // ALL DOM METHODS
-
 let scissors = document.querySelector('#scissors') 
 let rock = document.querySelector('#rock')
 let paper = document.querySelector('#paper')
@@ -61,7 +59,6 @@ rock.addEventListener('click', function () {
 paper.addEventListener('click', function () {
     game("paper"); 
 });
-
 
 
 // FUNCTIONALITY FOR BUTTON RESETTING OF GAME COMPLETE
@@ -119,16 +116,15 @@ if (roundsCompleted < 5) {
 
         if (roundsCompleted === 5) {
             displayFinalWinner()
-        
+
         }
     }   
 };
 
 function startNewGame() {
-    resetGame()
-   
-    
+    resetGame() 
 }
+
 function resetGame () {
     playerScore = 0
     computerScore = 0
@@ -136,10 +132,7 @@ function resetGame () {
     roundResultContent.textContent = ""
     finalWinnerContent.textContent = ""
     runningScoreContent.textContent = "0 - 0"
-    
 }
-
-
 
 
     
