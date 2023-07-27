@@ -14,12 +14,12 @@ body {
     grid-template-columns: 1fr;
     justify-items: center;
     align-items: center;
-    margin: 100px;
     font-family: 'Handjet';
 }
 
 h1 {
     color: white;
+    
     
 }
 
@@ -90,21 +90,50 @@ h2 {
 
 }
 
-.icon1:hover, .icon2:hover, .icon3:hover {
+.icon1:hover, .icon2:hover, .icon3:hover, #new-game-button:hover {
     transform: scale(1.2) translateZ(0);
     box-shadow: 0 0 10px 2px rgba(255, 0, 0, 1)
 }
 
 #final-winner-content {
     box-sizing: border-box;
-    margin: 0
+    margin: 0;
+    margin-bottom: 20px;
 }
 
 
-@media screen and (max-width: 667px) {
+#new-game-button {
+    border-radius: 80px 80px ;
+    border: 1px solid white;
+    font-family: 'Handjet', cursive;
+    font-size: 20px;
+    letter-spacing: 2px;
+    height: 3vh;
+    max-width: 100%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+
+
+/*@media screen and (max-width: 600px) {
+    h1 {
+         
+    }
+
+    p {
+        
+    }
+
+    h2 {
+        
+        
+    }
     
-  }
-  
+}
 
 
 
