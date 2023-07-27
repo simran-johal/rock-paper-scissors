@@ -5,6 +5,7 @@
 html {
     box-sizing: border-box;
     font-size: 200%;
+    
 }
 
 body {
@@ -13,11 +14,13 @@ body {
     grid-template-columns: 1fr;
     justify-items: center;
     align-items: center;
-    margin: 100px
+    margin: 100px;
+    font-family: 'Handjet';
 }
 
 h1 {
-    color: white
+    color: white;
+    
 }
 
 p {
@@ -34,20 +37,26 @@ h2 {
 }
 
 
+
+
+
+
 #weapons-title {
-    margin: 60px;
+    margin-top: 60px;
 }
 
 
 .buttons-container {
     display: flex;
-    margin: 50px;
-    margin-top: 0;
+    flex-direction: row;
+    justify-content: center;
+    margin: 10px;
+
     
 }
 
 .buttons {
-    margin: 30px;
+    margin: 20px;
 }
 
 .score-section {
@@ -55,13 +64,14 @@ h2 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
 
 .round-winner-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 20px;
+    margin: 5px;
 }
 
 .running-score-section {
@@ -72,8 +82,11 @@ h2 {
     height: 20%;
     width: 20%;
     vertical-align: middle;
-    transition: transform 0.5s;t
+    transition: transform 0.5s;
     transform-origin: center;
+    border: 1px solid white;
+    padding: 10px;
+
 
 }
 
@@ -88,7 +101,10 @@ h2 {
 }
 
 
-
+@media screen and (max-width: 667px) {
+    
+  }
+  
 
 
 
