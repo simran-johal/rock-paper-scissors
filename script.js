@@ -85,7 +85,7 @@ function displayFinalWinner() {
 // GAME FUNCTION 
 function game(choice) {
     
-if (roundsCompleted < 5) {
+if (playerScore !== 5 && computerScore !== 5) {
     const playerChoice = choice  
     const computerChoice = getComputerChoice()
     const roundResult = playRound(playerChoice,computerChoice)
@@ -114,8 +114,10 @@ if (roundsCompleted < 5) {
         }
         roundsCompleted++
 
-        if (roundsCompleted === 5) {
+        if (playerScore == 5 || computerScore == 5 ) {
             displayFinalWinner()
+            
+            
 
         }
     }   
